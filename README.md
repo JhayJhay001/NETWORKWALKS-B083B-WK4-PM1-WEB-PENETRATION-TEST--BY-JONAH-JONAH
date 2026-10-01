@@ -54,7 +54,7 @@ The turning point came when a parent application directory returned an **automat
 
 Rather than continuing to guess, the application itself had exposed part of its internal route structure.
 
-![Redacted patient directory index](evidence/m1-initial-access/01-patient-directory-index-redacted.png)
+
 
 The exact exposed routes have been redacted from this public repository, but the result established an important finding: **directory indexing was enabled in a sensitive application area**.
 
@@ -70,7 +70,6 @@ First, different error messages were returned for an unknown account and a recog
 
 Second, malformed input produced a raw MySQL warning from `mysqli_query()`.
 
-![SQL error disclosure](evidence/m1-initial-access/02-sql-error-disclosure-redacted.png)
 
 This demonstrated:
 
@@ -100,7 +99,7 @@ One candidate produced a clearly different result:
 - a different response length;
 - an authenticated redirect.
 
-![Redacted authentication result](evidence/m1-initial-access/03-authentication-success-redacted.png)
+
 
 The credential itself, session information and redirect destination are intentionally redacted.
 
@@ -112,7 +111,6 @@ The recovered credential was verified through normal browser authentication.
 
 The portal then exposed **three encrypted pathology reports**, completing the access portion of Milestone 1.
 
-![Redacted authenticated report access](evidence/m1-initial-access/04-authenticated-report-access-redacted.png)
 
 Patient names, laboratory references and the authenticated route are removed from the public screenshot.
 
@@ -157,13 +155,11 @@ This correction did not modify the encrypted document data or password verifier;
 
 After the hashes loaded successfully, they were tested locally against `rockyou.txt`.
 
-![Redacted John the Ripper recovery](evidence/m2-document-recovery/01-jtr-offline-recovery-redacted.png)
 
 All three report passwords were recovered and then independently validated by opening the original PDFs.
 
 The public result file preserves the success state without publishing the passwords:
 
-[`02-jtr-results-redacted.txt`](evidence/m2-document-recovery/02-jtr-results-redacted.txt)
 
 ### 6. Legacy Data Exposure
 
@@ -171,19 +167,17 @@ Milestone 3 shifted the assessment away from the patient portal.
 
 A legacy application area also exposed an automatic directory index.
 
-![Redacted legacy directory index](evidence/m3-data-exposure/01-legacy-directory-index-redacted.png)
 
-The indexed area exposed a database backup that was retrievable **without authentication**.
+
 
 The exact filename and live retrieval path are omitted publicly.
 
 The retained response headers demonstrate that the SQL resource was successfully returned by the server:
 
-[`02-backup-download-headers.txt`](evidence/m3-data-exposure/02-backup-download-headers.txt)
+
 
 Inspection confirmed database structures containing both employee and shareholder information.
 
-![Redacted backup structure](evidence/m3-data-exposure/03-backup-structure-redacted.png)
 
 The recovered material included:
 
