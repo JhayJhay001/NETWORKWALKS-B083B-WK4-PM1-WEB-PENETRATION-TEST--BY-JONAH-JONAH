@@ -44,7 +44,7 @@ Tools and techniques used included:
 
 ## Assessment Journey
 
-### 1. Reconnaissance & Route Discovery
+### 1. Attack the website and find the 3 confidential PDF lab reports of patients**
 
 The assessment began with ordinary web reconnaissance and route discovery.
 
